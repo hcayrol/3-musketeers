@@ -7,25 +7,68 @@ describe('starwars-names', () => {
       expect(starWars.all).toHaveLength(starWarsNames.length)
     });
     test('should be an array of strings', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
-    });
+		var str= true;
+		starWars.all.forEach(function(elem){
+			if(typeof(elem)!= "string")
+			{
+				str=false;
+			}
+		});
+		expect(str).toEqual(true);
+	});
 
     test('should contain `Luke Skywalker`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+        const sky ='Luke Skywalker';
+		var luke=false;
+		for (var i = 0; i<starWars.all.length;i++){
+			if (starWars.all[i]==sky){
+			luke = true;		
+			}
+		}
+		expect(luke).toEqual(true);
     });
 
     test('should not contain `Ben Quadinaros`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+           const ben ='Ben Quadinaros';
+		var qua=true;
+		for (var i = 0; i<starWars.all.length;i++){
+			if (starWars.all[i]==ben){
+			qua = false;		
+			}
+		}
+		expect(qua).toEqual(true);
     });
   });
 
   describe('random', () => {
     test('should return a random item from the starWars.all', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+	
+      const R1= starWars.random();
+	  const R2=starWars.random();
+	  console.log(R1);
+	  console.log(R2);
+	  var starw= true
+	  if (R1==R2){
+		  starw= false;
+	  }
+	  expect(starw).toEqual(true);
     });
 
     test('should return an array of random items if passed a number', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+		
+      const nombre = starWars.randomint(starWars.all.length);
+	  var arr= starWars.random(nombre);
+	  var ran= true;
+	  for (var i =0; i<arr.length;i++){
+		  console.log(arr[i]);
+		  if(!starWars.all.includes(arr[i]))
+		  {
+			  ran=faux;
+			  break;
+		  }
+		  
+	  }
+	  expect(ran).toEqual(true);
     });
   });
 });

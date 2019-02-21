@@ -56,7 +56,7 @@ describe('starwars-names', () => {
 
     test('should return an array of random items if passed a number', () => {
 		
-      const nombre = starWars.randomint(starWars.all.length);
+      const nombre = starWars.randomint(starWars.all.length); //randomint genere un nombre aletoire, function ajouté dans index.js
 	  var arr= starWars.random(nombre);
 	  var ran= true;
 	  for (var i =0; i<arr.length;i++){
